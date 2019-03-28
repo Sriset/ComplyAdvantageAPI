@@ -1,0 +1,47 @@
+Feature: As an automation test
+          I want to add politician data via post API method and display politician data via get API method
+          so that API end points are verified successfully
+
+  @AddPolitician
+  Scenario Outline: Allows adding politicians data                                                [90m# src/test/java/Resources/ComplyAdvantageAPI.feature:6[0m
+    [36mGiven [0m[36mI request ComplyAdvantage[0m
+    [36mWhen [0m[36mI post adding politicians "<name>" "<country>" "<yearofbirth>" "<position>" and "<risk>"[0m
+    [36mThen [0m[36mI get an OK response[0m
+
+    Examples: 
+
+  @AddPolitician
+  Scenario Outline: Allows adding politicians data                                [90m# src/test/java/Resources/ComplyAdvantageAPI.feature:13[0m
+    [32mGiven [0m[32mI request ComplyAdvantage[0m                                               [90m# MyStepdefs.i_request_ComplyAdvantage()[0m
+    [32mWhen [0m[32mI post adding politicians "[0m[32m[1mBarry Gardner[0m[32m" "[0m[32m[1mUK[0m[32m" "[0m[32m[1m09/25/1973[0m[32m" "[0m[32m[1mMP[0m[32m" and "[0m[32m[1m5[0m[32m"[0m [90m# MyStepdefs.i_post_adding_politicians_and(String,String,String,String,int)[0m
+    [32mThen [0m[32mI get an OK response[0m                                                     [90m# MyStepdefs.i_get_an_OK_response()[0m
+
+  @AddPolitician
+  Scenario Outline: Allows adding politicians data                                [90m# src/test/java/Resources/ComplyAdvantageAPI.feature:14[0m
+    [32mGiven [0m[32mI request ComplyAdvantage[0m                                               [90m# MyStepdefs.i_request_ComplyAdvantage()[0m
+    [32mWhen [0m[32mI post adding politicians "[0m[32m[1mAlex McGraill[0m[32m" "[0m[32m[1mUK[0m[32m" "[0m[32m[1m03/23/1965[0m[32m" "[0m[32m[1mMP[0m[32m" and "[0m[32m[1m2[0m[32m"[0m [90m# MyStepdefs.i_post_adding_politicians_and(String,String,String,String,int)[0m
+    [32mThen [0m[32mI get an OK response[0m                                                     [90m# MyStepdefs.i_get_an_OK_response()[0m
+
+  @AddPolitician
+  Scenario Outline: Allows adding politicians data                                 [90m# src/test/java/Resources/ComplyAdvantageAPI.feature:15[0m
+    [32mGiven [0m[32mI request ComplyAdvantage[0m                                                [90m# MyStepdefs.i_request_ComplyAdvantage()[0m
+    [32mWhen [0m[32mI post adding politicians "[0m[32m[1mChris Thompson[0m[32m" "[0m[32m[1mUK[0m[32m" "[0m[32m[1m11/25/1953[0m[32m" "[0m[32m[1mMP[0m[32m" and "[0m[32m[1m1[0m[32m"[0m [90m# MyStepdefs.i_post_adding_politicians_and(String,String,String,String,int)[0m
+    [32mThen [0m[32mI get an OK response[0m                                                      [90m# MyStepdefs.i_get_an_OK_response()[0m
+
+  @AddPolitician
+  Scenario Outline: Allows adding politicians data                                  [90m# src/test/java/Resources/ComplyAdvantageAPI.feature:16[0m
+    [32mGiven [0m[32mI request ComplyAdvantage[0m                                                 [90m# MyStepdefs.i_request_ComplyAdvantage()[0m
+    [32mWhen [0m[32mI post adding politicians "[0m[32m[1mElizabeth Evans[0m[32m" "[0m[32m[1mUK[0m[32m" "[0m[32m[1m12/30/1978[0m[32m" "[0m[32m[1mMP[0m[32m" and "[0m[32m[1m3[0m[32m"[0m [90m# MyStepdefs.i_post_adding_politicians_and(String,String,String,String,int)[0m
+    [32mThen [0m[32mI get an OK response[0m                                                       [90m# MyStepdefs.i_get_an_OK_response()[0m
+
+  @AddPolitician
+  Scenario Outline: Allows adding politicians data                                [90m# src/test/java/Resources/ComplyAdvantageAPI.feature:17[0m
+    [32mGiven [0m[32mI request ComplyAdvantage[0m                                               [90m# MyStepdefs.i_request_ComplyAdvantage()[0m
+    [32mWhen [0m[32mI post adding politicians "[0m[32m[1mJordan Jaamie[0m[32m" "[0m[32m[1mUK[0m[32m" "[0m[32m[1m11/25/1953[0m[32m" "[0m[32m[1mMP[0m[32m" and "[0m[32m[1m4[0m[32m"[0m [90m# MyStepdefs.i_post_adding_politicians_and(String,String,String,String,int)[0m
+    [32mThen [0m[32mI get an OK response[0m                                                     [90m# MyStepdefs.i_get_an_OK_response()[0m
+
+  @ReturnLatestListof5Politician
+  Scenario: Returns the list of the latest 5 politicians, order by date of creation                        [90m# src/test/java/Resources/ComplyAdvantageAPI.feature:20[0m
+    [32mGiven [0m[32mI request ComplyAdvantage[0m                                                                        [90m# MyStepdefs.i_request_ComplyAdvantage()[0m
+    [32mWhen [0m[32mI request get method for endpoint "[0m[32m[1mhttp://ec2-34-251-162-89.eu-west-1.compute.amazonaws.com/peps[0m[32m"[0m [90m# MyStepdefs.i_request_get_method_for_endpoint(String)[0m
+    [32mThen [0m[32mI get response as list of the latest [0m[32m[1m5[0m[32m politicians, order by date of creation[0m                     [90m# MyStepdefs.i_get_response_as_list_of_the_latest_politicians_order_by_date_of_creation(int)[0m
